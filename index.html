@@ -1,62 +1,149 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linktree Saya</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      margin: 0;
-      padding: 40px 20px;
-    }
-    img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      margin-bottom: 15px;
-    }
-    h2 {
-      margin: 8px 0;
-    }
-    p {
-      font-size: 12px;
-      opacity: 0.8;
-    }
-    .link {
-      display: block;
-      margin: 15px auto;
-      padding: 15px;
-      max-width: 300px;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: 0.2s;
-      font-weight: bold;
-    }
-    .link:hover {
-      background: rgba(255,255,255,0.3);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Internal Barcode Test - Toshiba B-FV4</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6f8;color:#20242a;font-family:Arial,sans-serif}
+.wrap{max-width:980px;margin:auto;padding:24px}
+h1{margin:0 0 6px;font-size:24px}
+.sub{color:#6b7280;margin-bottom:20px}
+.panel{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,.05)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+input{width:100%;height:42px;border:1px solid #d8dde5;border-radius:9px;padding:0 12px;font-size:14px}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+button{border:0;border-radius:9px;padding:11px 18px;font-weight:700;cursor:pointer}
+.print{background:#e56f08;color:#fff}
+.test{background:#eef2f7;color:#333}
+.preview-title{margin:24px 0 10px;font-weight:700}
+
+.sheet{
+  width:100%;
+  background:#ddd;
+  padding:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  max-width:560px;
+}
+.label{
+  background:#fff;
+  height:76px;
+  border-radius:7px;
+  padding:7px 8px 5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.product{
+  font-size:8px;
+  font-weight:800;
+  white-space:nowrap;
+  margin-bottom:3px;
+}
+.barcode{
+  width:92%;
+  height:38px;
+  object-fit:fill;
+}
+.code{
+  font-family:monospace;
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:2px;
+}
+
+@media(max-width:650px){
+ .grid{grid-template-columns:1fr}
+ .wrap{padding:14px}
+}
+
+/* Print: print only the label sheet */
+@media print{
+ @page{size:auto;margin:0}
+ body{background:#fff}
+ .no-print{display:none!important}
+ .wrap{padding:0;margin:0}
+ .sheet{
+   max-width:none;
+   width:100%;
+   padding:0;
+   gap:0;
+   background:#fff;
+   grid-template-columns:1fr 1fr;
+ }
+ .label{
+   border-radius:0;
+   break-inside:avoid;
+   height:76px;
+ }
+}
+</style>
 </head>
 <body>
-  <img src="IMG_4463.jpeg" alt="Foto Profil">
-  <h2>FAMILY GATHERING RM KEMANG</h2>
-  <p>Terimakasih Semuanya
-    Telah Men-Sukseskan Acara Family Gathering RM Kemang
-    ✨ </p>    <p> Berikut hasil dokumentasi acara kemarin, 
-    jika ingin melihat gambar / video full HD tidak pecah-pecah. Harap di download dulu ya ! 
-   Terimakasih. </p>
+<div class="wrap">
+  <div class="panel no-print">
+    <h1>INTERNAL BARCODE</h1>
+    <div class="sub">Test label untuk TOSHIBA B-FV4 • 203 dpi</div>
 
-  <a class="link" href="https://drive.google.com/drive/folders/114kNT3t1nnbmb-fcNGjHbuBG2KzZg50F" target="_blank">🎥 VIDEO JADI</a>
-  <a class="link" href="https://drive.google.com/drive/folders/1xtipNH8S6Iw63Aapu_mRj0g8pgWhL838" target="_blank">📷 FOTO BERSAMA</a>
-  <a class="link" href="https://drive.google.com/drive/folders/19inJ6IwVFsuOt4kWJlmjEBhwzxQBrkZX" target="_blank">📸 DOKUMENTASI FOTO</a>
-  <a class="link" href="https://drive.google.com/drive/folders/1WZgNFVSUWyQg5yW6SXg0A5C1xg0X0fnF" target="_blank">🛸 FILE DRONE </a>
-  <a class="link" href="https://drive.google.com/drive/folders/1k_YVc9AJTcsAT5Uh_zYRXUBpMXExG9Ho" target="_blank">😭 VIDEO CORE </a>
+    <div class="grid">
+      <div>
+        <label>Nama Produk</label>
+        <input id="product" value="SIGNATURE BEEF BURGER">
+      </div>
+      <div>
+        <label>Kode Barcode</label>
+        <input id="code" value="100000117185">
+      </div>
+      <div>
+        <label>Jumlah Label</label>
+        <input id="qty" type="number" min="1" max="100" value="10">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="test" onclick="updatePreview()">UPDATE PREVIEW</button>
+      <button class="print" onclick="window.print()">PRINT TEST</button>
+    </div>
+
+    <div class="preview-title">Preview</div>
+  </div>
+
+  <div id="sheet" class="sheet"></div>
+</div>
+
+<script>
+function barcodeSvg(value){
+  // Temporary visual barcode for layout testing.
+  // Final version will use the exact barcode symbology used by SAP.
+  let bars='';
+  let seed=[1,1,2,1,2,1,1,2,1,1,2,2,1,1,1,2,2,1,1,2,1,2,1,1,2,1,1,1,2,2,1,2,1,1,2,1,2,1,1,2,2,1,1,1,2,1,2,2,1,1,2,1,1,2,1,2,1,1,2,2];
+  let x=4;
+  seed.forEach((w,i)=>{
+    if(i%2===0) bars+=`<rect x="${x}" y="0" width="${w}" height="42"/>`;
+    x+=w;
+  });
+  return `<svg class="barcode" viewBox="0 0 ${x+4} 42" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/>${bars}</svg>`;
+}
+function updatePreview(){
+  const product=document.getElementById('product').value || 'PRODUCT';
+  const code=document.getElementById('code').value || '100000117185';
+  let qty=Math.max(1,Math.min(100,parseInt(document.getElementById('qty').value)||1));
+  const sheet=document.getElementById('sheet');
+  sheet.innerHTML='';
+  for(let i=0;i<qty;i++){
+    const el=document.createElement('div');
+    el.className='label';
+    el.innerHTML=`<div class="product">${product}</div>${barcodeSvg(code)}<div class="code">${code}</div>`;
+    sheet.appendChild(el);
+  }
+}
+updatePreview();
+</script>
 </body>
 </html>

@@ -2,148 +2,26 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Internal Barcode Test - Toshiba B-FV4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal Barcode - Toshiba B-FV4</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f5f6f8;color:#20242a;font-family:Arial,sans-serif}
-.wrap{max-width:980px;margin:auto;padding:24px}
-h1{margin:0 0 6px;font-size:24px}
-.sub{color:#6b7280;margin-bottom:20px}
-.panel{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,.05)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
-input{width:100%;height:42px;border:1px solid #d8dde5;border-radius:9px;padding:0 12px;font-size:14px}
-.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-button{border:0;border-radius:9px;padding:11px 18px;font-weight:700;cursor:pointer}
-.print{background:#e56f08;color:#fff}
-.test{background:#eef2f7;color:#333}
-.preview-title{margin:24px 0 10px;font-weight:700}
-
-.sheet{
-  width:100%;
-  background:#ddd;
-  padding:12px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  max-width:560px;
-}
-.label{
-  background:#fff;
-  height:76px;
-  border-radius:7px;
-  padding:7px 8px 5px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-.product{
-  font-size:8px;
-  font-weight:800;
-  white-space:nowrap;
-  margin-bottom:3px;
-}
-.barcode{
-  width:92%;
-  height:38px;
-  object-fit:fill;
-}
-.code{
-  font-family:monospace;
-  font-size:10px;
-  letter-spacing:1px;
-  margin-top:2px;
-}
-
-@media(max-width:650px){
- .grid{grid-template-columns:1fr}
- .wrap{padding:14px}
-}
-
-/* Print: print only the label sheet */
-@media print{
- @page{size:auto;margin:0}
- body{background:#fff}
- .no-print{display:none!important}
- .wrap{padding:0;margin:0}
- .sheet{
-   max-width:none;
-   width:100%;
-   padding:0;
-   gap:0;
-   background:#fff;
-   grid-template-columns:1fr 1fr;
- }
- .label{
-   border-radius:0;
-   break-inside:avoid;
-   height:76px;
- }
-}
+*{box-sizing:border-box}body{margin:0;padding:20px;background:#f4f5f7;font-family:Arial,sans-serif;color:#202124}.panel{max-width:700px;margin:0 auto 20px;background:#fff;padding:20px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08)}h1{margin:0 0 6px;font-size:22px}.note{font-size:13px;color:#6b7280;margin-bottom:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}input{width:100%;height:40px;border:1px solid #d5d9df;border-radius:8px;padding:0 10px;font-size:14px}.actions{display:flex;gap:10px;margin-top:15px}button{border:0;border-radius:8px;padding:11px 18px;cursor:pointer;font-weight:700}.previewBtn{background:#eef1f5;color:#333}.printBtn{background:#e56f08;color:#fff}.print-area{width:62mm;height:15mm;background:#fff;margin:20px auto;padding:1.5mm 2mm 1mm;overflow:hidden}.label{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.product{width:100%;font-size:7pt;line-height:7pt;font-weight:800;text-align:center;white-space:nowrap;overflow:hidden;margin-bottom:.6mm}.barcode{width:53mm;height:7mm;display:block}.code{font-family:Arial,sans-serif;font-size:7.5pt;line-height:7pt;letter-spacing:.7mm;margin-top:.5mm;white-space:nowrap}@page{size:62mm 15mm;margin:0}@media print{html,body{width:62mm;height:15mm;margin:0;padding:0;background:#fff}body *{visibility:hidden}.print-area,.print-area *{visibility:visible}.print-area{position:absolute;left:0;top:0;width:62mm;height:15mm;margin:0;padding:1.5mm 2mm 1mm}.no-print{display:none!important}}@media(max-width:600px){.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="panel no-print">
-    <h1>INTERNAL BARCODE</h1>
-    <div class="sub">Test label untuk TOSHIBA B-FV4 • 203 dpi</div>
-
-    <div class="grid">
-      <div>
-        <label>Nama Produk</label>
-        <input id="product" value="SIGNATURE BEEF BURGER">
-      </div>
-      <div>
-        <label>Kode Barcode</label>
-        <input id="code" value="100000117185">
-      </div>
-      <div>
-        <label>Jumlah Label</label>
-        <input id="qty" type="number" min="1" max="100" value="10">
-      </div>
-    </div>
-
-    <div class="actions">
-      <button class="test" onclick="updatePreview()">UPDATE PREVIEW</button>
-      <button class="print" onclick="window.print()">PRINT TEST</button>
-    </div>
-
-    <div class="preview-title">Preview</div>
-  </div>
-
-  <div id="sheet" class="sheet"></div>
+<div class="panel no-print">
+<h1>INTERNAL BARCODE</h1>
+<div class="note">Test print khusus label Toshiba B-FV4 • 203 dpi • 62 × 15 mm</div>
+<div class="row">
+<div><label>Nama Produk</label><input id="product" value="SIGNATURE BEEF BURGER"></div>
+<div><label>Kode Barcode</label><input id="code" value="100000117185"></div>
 </div>
-
+<div class="actions"><button class="previewBtn" onclick="updateLabel()">UPDATE</button><button class="printBtn" onclick="window.print()">PRINT TEST</button></div>
+</div>
+<div class="print-area"><div class="label"><div id="productPreview" class="product">SIGNATURE BEEF BURGER</div><svg id="barcodePreview" class="barcode" viewBox="0 0 240 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg><div id="codePreview" class="code">100000117185</div></div></div>
 <script>
-function barcodeSvg(value){
-  // Temporary visual barcode for layout testing.
-  // Final version will use the exact barcode symbology used by SAP.
-  let bars='';
-  let seed=[1,1,2,1,2,1,1,2,1,1,2,2,1,1,1,2,2,1,1,2,1,2,1,1,2,1,1,1,2,2,1,2,1,1,2,1,2,1,1,2,2,1,1,1,2,1,2,2,1,1,2,1,1,2,1,2,1,1,2,2];
-  let x=4;
-  seed.forEach((w,i)=>{
-    if(i%2===0) bars+=`<rect x="${x}" y="0" width="${w}" height="42"/>`;
-    x+=w;
-  });
-  return `<svg class="barcode" viewBox="0 0 ${x+4} 42" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/>${bars}</svg>`;
-}
-function updatePreview(){
-  const product=document.getElementById('product').value || 'PRODUCT';
-  const code=document.getElementById('code').value || '100000117185';
-  let qty=Math.max(1,Math.min(100,parseInt(document.getElementById('qty').value)||1));
-  const sheet=document.getElementById('sheet');
-  sheet.innerHTML='';
-  for(let i=0;i<qty;i++){
-    const el=document.createElement('div');
-    el.className='label';
-    el.innerHTML=`<div class="product">${product}</div>${barcodeSvg(code)}<div class="code">${code}</div>`;
-    sheet.appendChild(el);
-  }
-}
-updatePreview();
+function makeBarcode(){const svg=document.getElementById('barcodePreview');const pattern=[2,1,1,2,1,2,2,1,1,1,2,1,1,2,2,1,2,1,1,2,1,1,2,2,1,1,2,1,2,2,1,1,1,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,1,1,2,2,1,1,2,1,2,1,1,2,1,2,2];let x=2,bars='';pattern.forEach((w,i)=>{if(i%2===0)bars+=`<rect x="${x}" y="0" width="${w}" height="40" fill="#000"></rect>`;x+=w});svg.innerHTML=`<rect width="240" height="40" fill="#fff"></rect>${bars}`}
+function updateLabel(){const product=document.getElementById('product').value.trim()||'PRODUCT';const code=document.getElementById('code').value.trim()||'100000117185';document.getElementById('productPreview').textContent=product;document.getElementById('codePreview').textContent=code;makeBarcode()}updateLabel();
 </script>
 </body>
 </html>

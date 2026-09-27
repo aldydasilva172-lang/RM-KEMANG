@@ -2,26 +2,303 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Internal Barcode - Toshiba B-FV4</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Barcode Toshiba B-FV4</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;padding:20px;background:#f4f5f7;font-family:Arial,sans-serif;color:#202124}.panel{max-width:700px;margin:0 auto 20px;background:#fff;padding:20px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08)}h1{margin:0 0 6px;font-size:22px}.note{font-size:13px;color:#6b7280;margin-bottom:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}input{width:100%;height:40px;border:1px solid #d5d9df;border-radius:8px;padding:0 10px;font-size:14px}.actions{display:flex;gap:10px;margin-top:15px}button{border:0;border-radius:8px;padding:11px 18px;cursor:pointer;font-weight:700}.previewBtn{background:#eef1f5;color:#333}.printBtn{background:#e56f08;color:#fff}.print-area{width:62mm;height:15mm;background:#fff;margin:20px auto;padding:1.5mm 2mm 1mm;overflow:hidden}.label{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.product{width:100%;font-size:7pt;line-height:7pt;font-weight:800;text-align:center;white-space:nowrap;overflow:hidden;margin-bottom:.6mm}.barcode{width:53mm;height:7mm;display:block}.code{font-family:Arial,sans-serif;font-size:7.5pt;line-height:7pt;letter-spacing:.7mm;margin-top:.5mm;white-space:nowrap}@page{size:62mm 15mm;margin:0}@media print{html,body{width:62mm;height:15mm;margin:0;padding:0;background:#fff}body *{visibility:hidden}.print-area,.print-area *{visibility:visible}.print-area{position:absolute;left:0;top:0;width:62mm;height:15mm;margin:0;padding:1.5mm 2mm 1mm}.no-print{display:none!important}}@media(max-width:600px){.row{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:#f5f6f8;
+  font-family:Arial,sans-serif;
+  color:#222;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.card{
+  width:min(460px,100%);
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+h1{
+  margin:0 0 20px;
+  font-size:20px;
+}
+label{
+  display:block;
+  margin:13px 0 6px;
+  font-size:13px;
+  font-weight:600;
+}
+input{
+  width:100%;
+  height:44px;
+  padding:0 12px;
+  border:1px solid #d7dbe0;
+  border-radius:9px;
+  font-size:16px;
+  outline:none;
+}
+input:focus{border-color:#e87511}
+button{
+  width:100%;
+  height:46px;
+  margin-top:18px;
+  border:0;
+  border-radius:9px;
+  background:#e87511;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+button:active{transform:scale(.99)}
+.info{
+  margin-top:12px;
+  min-height:20px;
+  font-size:12px;
+  color:#777;
+}
+.preview-title{
+  margin:24px 0 8px;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* Preview sesuai label 62 x 15 mm */
+.label-preview{
+  width:62mm;
+  height:15mm;
+  background:#fff;
+  border:1px dashed #aaa;
+  overflow:hidden;
+  padding:1.2mm 1.5mm;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.product-name{
+  font-size:2.8mm;
+  line-height:3mm;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.barcode{
+  width:100%;
+  height:6.5mm;
+  margin-top:.6mm;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+}
+.barcode span{
+  display:block;
+  width:1px;
+  background:#000;
+  height:100%;
+}
+.barcode-text{
+  text-align:center;
+  font-family:monospace;
+  font-size:2.5mm;
+  line-height:2.7mm;
+  letter-spacing:.2mm;
+}
+
+/* Saat print, hanya label yang dicetak */
+@media print{
+  @page{
+    size:62mm 15mm;
+    margin:0;
+  }
+  html,body{
+    width:62mm;
+    height:15mm;
+    margin:0;
+    padding:0;
+    background:#fff;
+  }
+  body{
+    display:block;
+  }
+  .card{
+    display:none;
+  }
+  .print-area{
+    display:block !important;
+    width:62mm;
+    height:15mm;
+  }
+  .label-preview{
+    border:0;
+    width:62mm;
+    height:15mm;
+    padding:1.2mm 1.5mm;
+  }
+}
+
+.print-area{
+  display:none;
+}
 </style>
 </head>
+
 <body>
-<div class="panel no-print">
-<h1>INTERNAL BARCODE</h1>
-<div class="note">Test print khusus label Toshiba B-FV4 • 203 dpi • 62 × 15 mm</div>
-<div class="row">
-<div><label>Nama Produk</label><input id="product" value="SIGNATURE BEEF BURGER"></div>
-<div><label>Kode Barcode</label><input id="code" value="100000117185"></div>
+
+<div class="card">
+  <h1>Barcode Toshiba B-FV4</h1>
+
+  <label for="barcodeInput">Barcode</label>
+  <input id="barcodeInput"
+         type="text"
+         inputmode="numeric"
+         placeholder="Contoh: 2100000117185"
+         autocomplete="off">
+
+  <label for="productInput">Nama Produk</label>
+  <input id="productInput"
+         type="text"
+         placeholder="SIGNATURE BEEF BURGER"
+         autocomplete="off">
+
+  <label for="qtyInput">Qty</label>
+  <input id="qtyInput"
+         type="number"
+         min="1"
+         value="1">
+
+  <button onclick="printLabel()">PRINT</button>
+
+  <div class="info" id="info">
+    Preview label 62 × 15 mm
+  </div>
+
+  <div class="preview-title">Preview</div>
+
+  <div class="label-preview" id="preview">
+    <div class="product-name" id="previewName">
+      SIGNATURE BEEF BURGER
+    </div>
+    <div class="barcode" id="barcode"></div>
+    <div class="barcode-text" id="previewBarcode">
+      2100000117185
+    </div>
+  </div>
 </div>
-<div class="actions"><button class="previewBtn" onclick="updateLabel()">UPDATE</button><button class="printBtn" onclick="window.print()">PRINT TEST</button></div>
+
+<div class="print-area">
+  <div class="label-preview">
+    <div class="product-name" id="printName"></div>
+    <div class="barcode" id="printBarcode"></div>
+    <div class="barcode-text" id="printBarcodeText"></div>
+  </div>
 </div>
-<div class="print-area"><div class="label"><div id="productPreview" class="product">SIGNATURE BEEF BURGER</div><svg id="barcodePreview" class="barcode" viewBox="0 0 240 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg><div id="codePreview" class="code">100000117185</div></div></div>
+
 <script>
-function makeBarcode(){const svg=document.getElementById('barcodePreview');const pattern=[2,1,1,2,1,2,2,1,1,1,2,1,1,2,2,1,2,1,1,2,1,1,2,2,1,1,2,1,2,2,1,1,1,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,1,1,2,2,1,1,2,1,2,1,1,2,1,2,2];let x=2,bars='';pattern.forEach((w,i)=>{if(i%2===0)bars+=`<rect x="${x}" y="0" width="${w}" height="40" fill="#000"></rect>`;x+=w});svg.innerHTML=`<rect width="240" height="40" fill="#fff"></rect>${bars}`}
-function updateLabel(){const product=document.getElementById('product').value.trim()||'PRODUCT';const code=document.getElementById('code').value.trim()||'100000117185';document.getElementById('productPreview').textContent=product;document.getElementById('codePreview').textContent=code;makeBarcode()}updateLabel();
+const barcodeInput = document.getElementById('barcodeInput');
+const productInput = document.getElementById('productInput');
+const qtyInput = document.getElementById('qtyInput');
+
+function makeBarcode(value, target){
+  target.innerHTML = '';
+
+  if(!value) return;
+
+  /*
+    Preview sederhana untuk tahap HTML.
+    Nanti bagian ini akan diganti dengan perintah
+    barcode native Toshiba melalui Print Helper.
+  */
+  let seed = 0;
+  for(let i=0;i<value.length;i++){
+    seed = ((seed << 5) - seed) + value.charCodeAt(i);
+    seed |= 0;
+  }
+
+  for(let i=0;i<120;i++){
+    const bar = document.createElement('span');
+    const bit = Math.abs(seed + i * 31) % 7;
+    bar.style.width = (bit === 0 ? 2 : 1) + 'px';
+    bar.style.height = (bit === 1 ? '75%' : '100%');
+    target.appendChild(bar);
+  }
+}
+
+function updatePreview(){
+  const barcode = barcodeInput.value.trim() || '2100000117185';
+  const product = productInput.value.trim() || 'SIGNATURE BEEF BURGER';
+
+  document.getElementById('previewName').textContent = product;
+  document.getElementById('previewBarcode').textContent = barcode;
+
+  makeBarcode(
+    barcode,
+    document.getElementById('barcode')
+  );
+}
+
+barcodeInput.addEventListener('input', updatePreview);
+productInput.addEventListener('input', updatePreview);
+
+function printLabel(){
+  const barcode = barcodeInput.value.trim();
+  const product = productInput.value.trim();
+  const qty = Math.max(1, parseInt(qtyInput.value || '1',10));
+
+  if(!barcode){
+    alert('Barcode wajib diisi.');
+    barcodeInput.focus();
+    return;
+  }
+
+  if(!product){
+    alert('Nama produk wajib diisi.');
+    productInput.focus();
+    return;
+  }
+
+  document.getElementById('printName').textContent = product;
+  document.getElementById('printBarcodeText').textContent = barcode;
+
+  const printBarcode = document.getElementById('printBarcode');
+  makeBarcode(barcode, printBarcode);
+
+  document.getElementById('info').textContent =
+    'Mencetak ' + qty + ' label...';
+
+  /*
+    Untuk sementara browser print dipakai sebagai TEST.
+    Setelah helper Toshiba selesai, tombol ini akan
+    mengirim RAW TPCL langsung ke B-FV4 tanpa dialog Chrome.
+  */
+  let count = 0;
+
+  function doPrint(){
+    count++;
+    window.print();
+
+    if(count < qty){
+      setTimeout(doPrint, 800);
+    }else{
+      document.getElementById('info').textContent =
+        'Perintah print sudah dikirim.';
+    }
+  }
+
+  doPrint();
+}
+
+updatePreview();
 </script>
+
 </body>
 </html>
